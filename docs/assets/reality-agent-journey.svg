@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06101c"/><stop offset="1" stop-color="#07150e"/></linearGradient></defs>
+<rect width="900" height="560" rx="24" fill="url(#bg)"/>
+<text x="48" y="66" fill="#fff" font-family="Arial,sans-serif" font-size="40" font-weight="700">The Agent's Verification Journey</text>
+<text x="48" y="102" fill="#91a8b3" font-family="Arial,sans-serif" font-size="18">Observe the world → verify assertions → keep evidence.</text>
+<path d="M145 300 C250 200 310 390 430 300 S610 200 760 300" fill="none" stroke="#62d89a" stroke-width="6"/>
+<g font-family="Arial,sans-serif" text-anchor="middle">
+<circle cx="145" cy="300" r="60" fill="#102a41" stroke="#3bb8ff" stroke-width="4"/><text x="145" y="292" fill="#fff" font-size="23" font-weight="700">OBSERVE</text><text x="145" y="324" fill="#8fd8ff" font-size="17">DNS · TLS · HTTP</text>
+<circle cx="430" cy="300" r="60" fill="#17331f" stroke="#8cff4d" stroke-width="4"/><text x="430" y="292" fill="#fff" font-size="23" font-weight="700">VERIFY</text><text x="430" y="324" fill="#b8ff8b" font-size="17">assertions</text>
+<circle cx="760" cy="300" r="60" fill="#153026" stroke="#5ee6a8" stroke-width="4"/><text x="760" y="292" fill="#fff" font-size="23" font-weight="700">EVIDENCE</text><text x="760" y="324" fill="#9ef3c7" font-size="17">private record</text>
+</g>
+<rect x="260" y="415" width="380" height="75" rx="18" fill="#0c1511" stroke="#304b3c"/>
+<text x="450" y="447" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="700">Agent Reality API</text>
+<text x="450" y="474" text-anchor="middle" fill="#93a99c" font-family="Arial,sans-serif" font-size="16">REST + MCP · Bun · pnpm · Vitest</text>
+</svg>
