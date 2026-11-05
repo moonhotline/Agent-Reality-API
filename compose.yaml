@@ -1,0 +1,27 @@
+# Local-only Docker setup. Use compose.prod.yaml for public HTTPS.
+services:
+  api:
+    build: .
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: '8080'
+      DATA_DIR: /app/data
+    ports:
+      - '127.0.0.1:8080:8080'
+    volumes:
+      - evidence:/app/data
+    read_only: true
+    tmpfs: ['/tmp:size=16m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: ['no-new-privileges:true']
+    pids_limit: 100
+    mem_limit: 192m
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 25s
+    logging:
+      driver: json-file
+      options: {max-size: '10m', max-file: '3'}
+volumes:
+  evidence:

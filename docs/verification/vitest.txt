@@ -1,0 +1,20 @@
+$ vitest run
+
+ RUN  v5.1.0 /mnt/data/reality-work/agent-reality-api
+
+ ✓ test/runtime.test.mjs (3 tests) 644ms
+   ✓ official MCP SDK interoperates with the production Bun process 380ms
+ ✓ test/tls.test.mjs (2 tests) 562ms
+   ✓ node: real TLS rejects untrusted certificates, accepts a test CA and rejects the wrong hostname 411ms
+ ✓ test/server.test.mjs (20 tests) 246ms
+ ✓ test/probe.test.mjs (33 tests) 72ms
+ ✓ test/policy.test.mjs (56 tests) 18ms
+
+ Test Files  5 passed (5)
+      Tests  114 passed (114)
+   Start at  07:23:04
+   Duration  2.47s (tests 81%, import 10%, transform 7%, worker 1%)
+
+    Isolate  5 workers spawned · ~103ms startup each (spawn + environment, per file)
+             at least ~414ms faster with isolate: false — reuses workers across files instead of one per file
+

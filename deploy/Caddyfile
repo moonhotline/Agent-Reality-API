@@ -1,0 +1,14 @@
+{$DOMAIN} {
+    encode zstd gzip
+    request_body {
+        max_size 16KB
+    }
+    header Strict-Transport-Security "max-age=31536000"
+    reverse_proxy api:8080 {
+        transport http {
+            dial_timeout 3s
+            response_header_timeout 20s
+        }
+    }
+    # Access logging is intentionally off: do not log URL query strings or keys.
+}

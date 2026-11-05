@@ -1,0 +1,45 @@
+name: Verify
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: reality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  regression-and-container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '11.21.0'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - run: pnpm test
+      - name: Validate deployment configuration and build Bun image
+        run: |
+          pnpm env:init
+          docker compose config --quiet
+          DOMAIN=ci.example.com PUBLIC_BASE_URL=https://ci.example.com docker compose -f compose.prod.yaml config --quiet
+          docker build -t agent-reality-api:test .
+      - name: Production container HTTP and official MCP SDK smoke
+        run: |
+          docker run -d --name reality --env-file .env -e NODE_ENV=production -e PUBLIC_BASE_URL=https://ci.example.com -e HOST=0.0.0.0 -p 127.0.0.1:8080:8080 agent-reality-api:test
+          trap 'docker logs reality; docker rm -f reality' EXIT
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8080/healthz; then break; fi
+            sleep 1
+          done
+          export REALITY_API_KEY="$(node --env-file=.env -p 'process.env.API_KEYS.split(":")[1]')"
+          export REALITY_BASE_URL=http://127.0.0.1:8080
+          pnpm smoke
+          pnpm test:sdk

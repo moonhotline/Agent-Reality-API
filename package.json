@@ -1,0 +1,35 @@
+{
+  "name": "agent-reality-api",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Evidence-first website verification API for AI agents. Self-hosted REST and MCP with bounded, private observations.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0",
+    "bun": ">=1.4.4"
+  },
+  "scripts": {
+    "start": "bun --env-file=.env src/main.mjs",
+    "dev": "bun --env-file=.env --watch src/main.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:runtime": "vitest run test/runtime.test.mjs test/tls.test.mjs",
+    "check": "node scripts/check.mjs",
+    "smoke": "bun scripts/smoke.mjs",
+    "test:sdk": "node scripts/sdk-smoke.mjs",
+    "env:init": "bun scripts/init-env.mjs"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moonhotline/test_repo.git"
+  },
+  "packageManager": "pnpm@11.21.0",
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "vitest": "5.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/moonhotline/test_repo/issues"
+  }
+}
