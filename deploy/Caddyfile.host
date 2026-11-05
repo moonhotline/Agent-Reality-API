@@ -1,0 +1,9 @@
+# Replace the example domain before loading this file.
+api.your-owned-domain.com {
+    encode zstd gzip
+    request_body {
+        max_size 16KB
+    }
+    header Strict-Transport-Security "max-age=31536000"
+    reverse_proxy 127.0.0.1:8080
+}

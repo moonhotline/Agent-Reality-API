@@ -1,0 +1,2 @@
+Syntax checked 25 JavaScript modules; REST/MCP input contracts agree; required documentation exists.
+pnpm lockfile, Bun runtime and Vitest test contracts verified.

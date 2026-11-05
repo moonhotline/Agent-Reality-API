@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/
+coverage/
+*.log
+*.pem
+*.key
+*.tgz
+.DS_Store
+artifacts/
+
+coverage/
+.vitest/
+*.tsbuildinfo

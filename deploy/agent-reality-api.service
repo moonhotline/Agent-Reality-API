@@ -1,0 +1,30 @@
+[Unit]
+Description=Agent Reality API - bounded external verification
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=agentreality
+Group=agentreality
+WorkingDirectory=/opt/agent-reality-api
+EnvironmentFile=/opt/agent-reality-api/.env
+# Install the pinned Bun binary at this path before enabling the unit.
+ExecStart=/usr/local/bin/bun /opt/agent-reality-api/src/main.mjs
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=25
+KillSignal=SIGTERM
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/agent-reality-api/data
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+UMask=0077
+MemoryMax=192M
+TasksMax=100
+
+[Install]
+WantedBy=multi-user.target
