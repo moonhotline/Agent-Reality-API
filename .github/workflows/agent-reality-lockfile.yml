@@ -1,0 +1,27 @@
+name: Preserve verified pnpm lockfile
+on:
+  push:
+    branches: [feat/agent-reality-api-pnpm-bun-vitest]
+    paths: [.github/workflows/agent-reality-lockfile.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Download the already-verified dependency artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: reality-toolchain
+          run-id: 41986348352
+          github-token: ${{ github.token }}
+          path: /tmp/reality-deps
+      - name: Store exactly that lockfile as a repository blob
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tar -xzf /tmp/reality-deps/reality-toolchain.tgz -C /tmp/reality-deps project/pnpm-lock.yaml
+          sha="$(gh api repos/moonhotline/test_repo/git/blobs --method POST -f encoding=base64 -f content="$(base64 -w0 /tmp/reality-deps/project/pnpm-lock.yaml)" --jq .sha)"
+          printf 'Verified lockfile blob: %s\n' "$sha"
