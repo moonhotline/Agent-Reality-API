@@ -1,5 +1,9 @@
 # Agent Reality API
 
+<p align="center">
+  <img src="docs/assets/reality-hero.svg" alt="Agent Reality API: observe DNS, TLS and HTTP, verify explicit assertions, and retain evidence" width="100%">
+</p>
+
 **Give agents evidence, not just information.**
 
 A self-hosted verification API for coding agents that need to check what they shipped from outside their own execution environment. Observe a public endpoint, compare explicit acceptance criteria, and keep a private, expiring record of what happened.
@@ -9,6 +13,8 @@ A self-hosted verification API for coding agents that need to check what they sh
 [Chinese overview](README.zh-CN.md) · [Deploy on a VPS](docs/DEPLOYMENT.md) · [Security model](SECURITY.md) · [SEO/GEO](docs/SEO-GEO.md) · [Verification report](docs/VERIFICATION.md)
 
 > **Release scope:** v0.2.0 is a focused, single-instance website verifier. It is not a browser, an uptime-monitoring network, a legal proof service, or an independent attestation authority. The included homepage examples are illustrative, not live measurements.
+
+> **About the visuals:** AI-generated concept illustrations, not screenshots, benchmarks or live observations. Measured behavior belongs in the verification report and CI results.
 
 ## Why this exists
 
@@ -30,6 +36,14 @@ Caddy HTTPS -> Agent Reality API -> screened public DNS / TLS / HTTP
 ```
 
 Use it for release markers, public health endpoints, API response assertions and an external network view. Skip it when a local test is sufficient. Use a real browser for JavaScript rendering, login, microphone permission and business workflows.
+
+### Observe. Verify. Keep the evidence.
+
+<p align="center">
+  <img src="docs/assets/reality-verification.svg" alt="Concept visual: an agent requests a deployment check, DNS, TLS, HTTP and source assertions complete, and an evidence reference is returned" width="70%">
+</p>
+
+*Concept visual. Values are illustrative; actual outcomes can be `pass`, `fail`, or `inconclusive`.*
 
 ## What ships
 
@@ -290,6 +304,14 @@ Changes must keep the single pnpm lockfile, add behavior-focused regression cove
 The next milestone is not “more tools.” It is repeat use by agents completing real deployment tasks. Record opt-in aggregate invocation counts, acceptance failures caught and repeat users without logging payloads. Add an event inbox only when users repeatedly need a public callback endpoint. Add broader context extraction only when there is measured net value over local code.
 
 No roadmap item above is implemented by this release.
+
+### The agent's verification journey
+
+<p align="center">
+  <img src="docs/assets/reality-agent-journey.svg" alt="Concept visual: Observe, Verify and Evidence form the Agent Reality API workflow" width="76%">
+</p>
+
+*Concept visual, not a live measurement. Real proof comes from reproducible verification records and CI.*
 
 ## License
 
