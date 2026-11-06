@@ -1,7 +1,7 @@
 # Agent Reality API
 
 <p align="center">
-  <img src="docs/assets/reality-hero.svg" alt="Agent Reality API: observe DNS, TLS and HTTP, verify explicit assertions, and retain evidence" width="100%">
+  <img src="docs/assets/reality-hero.png" alt="Agent Reality API: observe DNS, TLS and HTTP, verify explicit assertions, and retain evidence" width="100%">
 </p>
 
 **Give agents evidence, not just information.**
@@ -40,7 +40,7 @@ Use it for release markers, public health endpoints, API response assertions and
 ### Observe. Verify. Keep the evidence.
 
 <p align="center">
-  <img src="docs/assets/reality-verification.svg" alt="Concept visual: an agent requests a deployment check, DNS, TLS, HTTP and source assertions complete, and an evidence reference is returned" width="70%">
+  <img src="docs/assets/reality-verification.gif" alt="Concept visual: an agent requests a deployment check, DNS, TLS, HTTP and source assertions complete, and an evidence reference is returned" width="70%">
 </p>
 
 *Concept visual. Values are illustrative; actual outcomes can be `pass`, `fail`, or `inconclusive`.*
@@ -287,10 +287,10 @@ docs/       Runbooks, product scope, SEO/GEO and verification evidence
 
 ## Repository and contribution
 
-This delivery uses the personal fallback repository **[moonhotline/test_repo](https://github.com/moonhotline/test_repo)**. The original `test_repo` contained only a placeholder README; no unrelated application was replaced. The project name remains **Agent Reality API**. Repository creation in `NeutrinoGroup` was not available through the connected tools.
+The project repository is **[moonhotline/Agent-Reality-API](https://github.com/moonhotline/Agent-Reality-API)**.
 
 ```bash
-git clone https://github.com/moonhotline/test_repo.git agent-reality-api
+git clone https://github.com/moonhotline/Agent-Reality-API.git agent-reality-api
 cd agent-reality-api
 pnpm install --frozen-lockfile
 pnpm check
@@ -308,7 +308,7 @@ No roadmap item above is implemented by this release.
 ### The agent's verification journey
 
 <p align="center">
-  <img src="docs/assets/reality-agent-journey.svg" alt="Concept visual: Observe, Verify and Evidence form the Agent Reality API workflow" width="76%">
+  <img src="docs/assets/reality-agent-journey.gif" alt="Concept visual: Observe, Verify and Evidence form the Agent Reality API workflow" width="76%">
 </p>
 
 *Concept visual, not a live measurement. Real proof comes from reproducible verification records and CI.*
