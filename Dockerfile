@@ -1,5 +1,5 @@
 # Production uses Bun. Node, pnpm, Vitest and the MCP SDK are dev/CI only.
-FROM oven/bun:1.4.4-debian
+FROM oven/bun:1.4.5-debian
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=8080 DATA_DIR=/app/data
 WORKDIR /app
 COPY --chown=bun:bun package.json ./
